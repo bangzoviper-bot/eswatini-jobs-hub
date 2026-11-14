@@ -1,0 +1,576 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Eswatini Jobs Hub | Find Jobs in Eswatini</title>
+
+  <meta name="description" content="Discover job opportunities, internships, bursaries and career advice in Eswatini. Find your next opportunity with Eswatini Jobs Hub.">
+
+  <meta name="keywords" content="jobs in Eswatini, Eswatini vacancies, jobs in Matsapha, jobs in Manzini, government jobs Eswatini, internships Eswatini, bursaries Eswatini">
+
+  <meta name="theme-color" content="#102b46">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7fa;
+      color: #263445;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    header {
+      background: #102b46;
+      color: white;
+      padding: 17px 0;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: bold;
+      line-height: 1.2;
+    }
+
+    .logo span {
+      color: #43d9a3;
+    }
+
+    nav {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 13px;
+    }
+
+    nav a:hover {
+      color: #43d9a3;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #102b46, #174b60);
+      color: white;
+      text-align: center;
+      padding: 65px 15px;
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 6vw, 43px);
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      color: #d8e5ed;
+      margin-bottom: 25px;
+    }
+
+    .search-box {
+      display: flex;
+      background: white;
+      padding: 6px;
+      border-radius: 9px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .search-box input {
+      flex: 1;
+      min-width: 0;
+      border: none;
+      outline: none;
+      padding: 13px;
+      font-size: 15px;
+    }
+
+    .search-box button {
+      background: #16a878;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 7px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .search-box button:hover {
+      background: #10885f;
+    }
+
+    .categories {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .category {
+      border: 1px solid #b9d6d2;
+      background: white;
+      color: #164a43;
+      border-radius: 20px;
+      padding: 8px 15px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .category.active,
+    .category:hover {
+      background: #43d9a3;
+      border-color: #43d9a3;
+      color: #102b46;
+    }
+
+    .section {
+      padding: 42px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .section-title h2 {
+      color: #102b46;
+      font-size: 27px;
+    }
+
+    .section-title p {
+      color: #6d7c8c;
+      font-size: 14px;
+    }
+
+    .ad-box {
+      background: #e9eef2;
+      border: 1px dashed #aebbc6;
+      color: #718092;
+      text-align: center;
+      padding: 22px 10px;
+      border-radius: 8px;
+      margin: 25px auto;
+      max-width: 970px;
+      font-size: 13px;
+    }
+
+    .job-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .job-card {
+      background: white;
+      padding: 22px;
+      border-radius: 11px;
+      box-shadow: 0 3px 12px rgba(0,0,0,.05);
+      border: 1px solid #e8edf1;
+      transition: transform .2s;
+    }
+
+    .job-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .job-card h3 {
+      color: #102b46;
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    .job-card p {
+      font-size: 14px;
+      color: #697888;
+      margin-bottom: 14px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e4f8f0;
+      color: #13865e;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    .read-more {
+      color: #11956b;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .empty-message {
+      display: none;
+      text-align: center;
+      padding: 25px;
+      color: #687789;
+    }
+
+    .about {
+      background: white;
+      padding: 35px 25px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .about h2 {
+      color: #102b46;
+      margin-bottom: 12px;
+    }
+
+    .about p {
+      max-width: 700px;
+      margin: auto;
+      color: #667585;
+    }
+
+    .whatsapp {
+      position: fixed;
+      right: 17px;
+      bottom: 18px;
+      background: #20c66b;
+      color: white;
+      padding: 13px 17px;
+      border-radius: 30px;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0,0,0,.2);
+      z-index: 10;
+    }
+
+    footer {
+      background: #102b46;
+      color: white;
+      padding: 30px 15px;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    footer a {
+      color: #43d9a3;
+      margin: 0 8px;
+    }
+
+    @media(max-width: 750px) {
+      .job-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      nav {
+        gap: 10px;
+      }
+    }
+
+    @media(max-width: 500px) {
+      .job-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 48px 12px;
+      }
+
+      .search-box button {
+        padding: 10px;
+      }
+
+      .logo {
+        font-size: 19px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container navbar">
+    <a href="#" class="logo">
+      ESWATINI <span>JOBS HUB</span>
+    </a>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#opportunities">Opportunities</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="container">
+
+    <h1>Your Next Opportunity Starts Here.</h1>
+
+    <p>
+      Discover jobs, internships, bursaries and career
+      opportunities in Eswatini.
+    </p>
+
+    <div class="search-box">
+      <input
+        type="search"
+        id="jobSearch"
+        placeholder="Search jobs, careers or locations..."
+        aria-label="Search opportunities"
+      >
+
+      <button onclick="filterJobs()">Search</button>
+    </div>
+
+    <div class="categories">
+      <button class="category active" data-category="all">All</button>
+      <button class="category" data-category="jobs">Jobs</button>
+      <button class="category" data-category="internships">Internships</button>
+      <button class="category" data-category="bursaries">Bursaries</button>
+      <button class="category" data-category="career">Career Advice</button>
+    </div>
+
+  </div>
+</section>
+
+<div class="container">
+  <div class="ad-box">
+    Advertisement space
+    <br>
+    Google AdSense placement - activate after approval
+  </div>
+</div>
+
+<section class="section" id="opportunities">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Explore Opportunities</h2>
+      <p>Helpful employment resources for Eswatini job seekers.</p>
+    </div>
+
+    <div class="job-grid" id="jobGrid">
+
+      <article class="job-card" data-category="jobs">
+        <span class="tag">JOB SEARCH</span>
+        <h3>How to Find Jobs in Matsapha</h3>
+        <p>
+          Learn how to search for employment opportunities
+          in Matsapha's industrial and business areas.
+        </p>
+        <a href="articles/jobs-in-matsapha.html" class="read-more">
+          Read more →
+        </a>
+      </article>
+
+      <article class="job-card" data-category="jobs">
+        <span class="tag">JOB SEARCH</span>
+        <h3>Government Jobs in Eswatini</h3>
+        <p>
+          Learn where to find official government vacancies
+          and how to prepare your application.
+        </p>
+        <a href="articles/government-jobs.html" class="read-more">
+          Read more →
+        </a>
+      </article>
+
+      <article class="job-card" data-category="internships">
+        <span class="tag">INTERNSHIPS</span>
+        <h3>Internships for Graduates</h3>
+        <p>
+          Discover how to search for graduate internships
+          and gain valuable workplace experience.
+        </p>
+        <a href="articles/graduate-internships.html" class="read-more">
+          Read more →
+        </a>
+      </article>
+
+      <article class="job-card" data-category="bursaries">
+        <span class="tag">EDUCATION</span>
+        <h3>Bursaries in Eswatini</h3>
+        <p>
+          Find out where to look for bursaries,
+          scholarships and student funding.
+        </p>
+        <a href="articles/bursaries.html" class="read-more">
+          Read more →
+        </a>
+      </article>
+
+      <article class="job-card" data-category="career">
+        <span class="tag">CAREER ADVICE</span>
+        <h3>How to Write a Professional CV</h3>
+        <p>
+          Learn how to create a professional CV
+          that clearly presents your skills.
+        </p>
+        <a href="articles/how-to-write-a-cv.html" class="read-more">
+          Read more →
+        </a>
+      </article>
+
+      <article class="job-card" data-category="career">
+        <span class="tag">CAREER ADVICE</span>
+        <h3>How to Prepare for an Interview</h3>
+        <p>
+          Get practical tips to prepare for interviews
+          and improve your confidence.
+        </p>
+        <a href="articles/interview-tips.html" class="read-more">
+          Read more →
+        </a>
+      </article>
+
+    </div>
+
+    <p class="empty-message" id="emptyMessage">
+      No matching opportunities found. Try another search.
+    </p>
+
+    <p style="font-size:12px;color:#718092;text-align:center;margin-top:15px;">
+      These are educational article links, not verified live job vacancies.
+      Always confirm vacancies with the official employer.
+    </p>
+
+  </div>
+</section>
+
+<div class="container">
+  <div class="ad-box">
+    Advertisement space
+    <br>
+    Reserved for Google AdSense
+  </div>
+</div>
+
+<section class="section" id="about">
+  <div class="container">
+    <div class="about">
+      <h2>About Eswatini Jobs Hub</h2>
+
+      <p>
+        Eswatini Jobs Hub aims to make employment information
+        easier to access. We share job-search resources,
+        career guidance, internship information and bursary
+        opportunities to help people build a better future.
+      </p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer id="contact">
+  <h3>ESWATINI JOBS HUB</h3>
+
+  <p>Your next opportunity starts here.</p>
+
+  <p style="margin-top:12px;">
+    <a href="#home">Home</a>
+    <a href="#opportunities">Opportunities</a>
+    <a href="#about">About</a>
+  </p>
+
+  <p style="margin-top:15px;">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="disclaimer.html">Disclaimer</a>
+    <a href="mailto:contact@eswatinijobshub.com">Email Us</a>
+  </p>
+
+  <p style="margin-top:20px;">
+    © <span id="year"></span> Eswatini Jobs Hub.
+    All rights reserved.
+  </p>
+</footer>
+
+<!-- Replace the number below with your WhatsApp number.
+     Use international format without + or spaces. -->
+
+<a
+  class="whatsapp"
+  href="https://wa.me/268YOURNUMBER"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Follow Eswatini Jobs Hub on WhatsApp"
+>
+  WhatsApp
+</a>
+
+<script>
+  let selectedCategory = "all";
+
+  const searchInput = document.getElementById("jobSearch");
+  const cards = document.querySelectorAll(".job-card");
+  const emptyMessage = document.getElementById("emptyMessage");
+
+  function filterJobs() {
+    const search = searchInput.value.toLowerCase().trim();
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+      const text = card.innerText.toLowerCase();
+      const category = card.dataset.category;
+
+      const matchesSearch = text.includes(search);
+      const matchesCategory =
+        selectedCategory === "all" ||
+        category === selectedCategory;
+
+      const show = matchesSearch && matchesCategory;
+
+      card.style.display = show ? "block" : "none";
+
+      if (show) visibleCount++;
+    });
+
+    emptyMessage.style.display =
+      visibleCount === 0 ? "block" : "none";
+  }
+
+  document.querySelectorAll(".category").forEach(button => {
+    button.addEventListener("click", () => {
+      selectedCategory = button.dataset.category;
+
+      document.querySelectorAll(".category").forEach(item => {
+        item.classList.remove("active");
+      });
+
+      button.classList.add("active");
+      filterJobs();
+    });
+  });
+
+  searchInput.addEventListener("input", filterJobs);
+
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+</script>
+
+</body>
+</html>
