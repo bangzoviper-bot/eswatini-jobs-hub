@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jobs Hub Admin Dashboard</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f2f5f9;
+  color: #182235;
+}
+header {
+  background: #071b35;
+  color: white;
+  padding: 22px;
+}
+header span { color: #20c785; }
+main {
+  max-width: 700px;
+  margin: 25px auto;
+  padding: 0 15px;
+}
+.panel {
+  background: white;
+  padding: 22px;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px #0000000d;
+}
+h2 { color: #09294b; }
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 14px;
+}
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  border: 1px solid #ccd5df;
+  border-radius: 6px;
+  font-size: 15px;
+}
+textarea { min-height: 85px; resize: vertical; }
+button {
+  background: #087d55;
+  color: white;
+  border: none;
+  padding: 13px 18px;
+  margin-top: 18px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+}
+.secondary { background: #102b4d; }
+#output { min-height: 220px; font-family: monospace; font-size: 13px; }
+.notice {
+  background: #eaf3ff;
+  padding: 13px;
+  border-left: 4px solid #2877c7;
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #667085;
+  font-size: 13px;
+}
+</style>
+</head>
+<body>
+
+<header>
+<h2>🇸🇿 Eswatini <span>Jobs Hub</span></h2>
+<p>Admin Dashboard – Vacancy Generator</p>
+</header>
+
+<main>
+<div class="panel">
+<h2>Create a Job Listing</h2>
+
+<div class="notice">
+This tool generates a vacancy listing for you to copy into jobs.html. It does not publish directly to the website.
+</div>
+
+<form id="jobForm">
+
+<label>Job Title</label>
+<input id="title" required placeholder="Example: Finance Officer">
+
+<label>Employer</label>
+<input id="employer" required placeholder="Company or government department">
+
+<label>Country</label>
+<select id="country">
+<option value="eswatini">Eswatini</option>
+<option value="south-africa">South Africa</option>
+</select>
+
+<label>Location</label>
+<input id="location" required placeholder="Example: Mbabane">
+
+<label>Salary</label>
+<input id="salary" placeholder="Example: E10,000 per month">
+
+<label>Closing Date</label>
+<input id="deadline" required type="date">
+
+<label>Requirements</label>
+<textarea id="requirements" required placeholder="Enter job requirements"></textarea>
+
+<label>Official Application Link</label>
+<input id="apply" type="url" required placeholder="https://official-employer-website.com">
+
+<button type="submit">Generate Job Listing</button>
+</form>
+
+<div id="result" hidden>
+<h2>Your Generated Listing</h2>
+<textarea id="output" readonly></textarea>
+<button type="button" onclick="copyListing()">Copy Listing</button>
+<p id="message"></p>
+</div>
+
+</div>
+</main>
+
+<footer>
+Eswatini Jobs Hub Admin Tool
+<br><a href="jobs.html">View Jobs Board</a>
+</footer>
+
+<script>
+function escapeHTML(value) {
+  return value.replace(/[&<>"']/g, function(char) {
+    return {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    }[char];
+  });
+}
+
+document.getElementById("jobForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const title = escapeHTML(document.getElementById("title").value.trim());
+  const employer = escapeHTML(document.getElementById("employer").value.trim());
+  const country = document.getElementById("country").value;
+  const location = escapeHTML(document.getElementById("location").value.trim());
+  const salary = escapeHTML(document.getElementById("salary").value.trim() || "Not published");
+  const deadline = document.getElementById("deadline").value;
+  const requirements = escapeHTML(document.getElementById("requirements").value.trim());
+  const apply = document.getElementById("apply").value.trim();
+
+  if (!/^https:\/\//i.test(apply)) {
+    alert("Please enter a secure official HTTPS application link.");
+    return;
+  }
+
+  const safeApply = escapeHTML(apply);
+  const formattedDate = new Date(deadline + "T12:00:00").toLocaleDateString("en-GB");
+
+  const listing = `<div class="job" data-country="${country}">
+<span class="status">Check closing date: ${formattedDate}</span>
+<h3>${title}</h3>
+<p><strong>Employer:</strong> ${employer}</p>
+<p><strong>Location:</strong> ${location}</p>
+<p><strong>Salary:</strong> ${salary}</p>
+<p><strong>Requirements:</strong> ${requirements}</p>
+<p><strong>Closing date:</strong> ${formattedDate}</p>
+<a href="${safeApply}" target="_blank" rel="noopener">Apply on Official Website</a>
+</div>`;
+
+  document.getElementById("output").value = listing;
+  document.getElementById("result").hidden = false;
+  document.getElementById("message").textContent = "Listing generated. Check all details before publishing.";
+});
+
+function copyListing() {
+  const output = document.getElementById("output");
+  output.select();
+  output.setSelectionRange(0, 99999);
+
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(output.value).then(function() {
+      document.getElementById("message").textContent = "Listing copied! Paste it into jobs.html.";
+    }).catch(function() {
+      document.getElementById("message").textContent = "Select and copy the listing manually.";
+    });
+  } else {
+    document.getElementById("message").textContent = "Select and copy the listing manually.";
+  }
+}
+</script>
+
+</body>
+</html>
