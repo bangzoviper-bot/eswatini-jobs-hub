@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Latest Jobs | Eswatini Jobs Hub</title>
+<meta name="description" content="Explore job opportunities in Eswatini and South Africa. Find vacancies, application details and official employer links.">
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Arial, sans-serif; background: #f4f7fb; color: #182235; line-height: 1.6; }
+header { background: #071b35; color: white; padding: 22px 5%; }
+header h2 span { color: #20c785; }
+nav { background: #102b4d; padding: 12px 5%; }
+nav a { color: white; text-decoration: none; margin-right: 20px; font-size: 14px; }
+.hero { background: linear-gradient(120deg,#071b35,#145b50); color: white; text-align: center; padding: 45px 15px; }
+.hero h1 { font-size: 30px; margin-bottom: 10px; }
+main { max-width: 1000px; margin: auto; padding: 30px 18px; }
+section { margin-bottom: 35px; }
+h2 { color: #09294b; margin-bottom: 15px; }
+.filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+.filters button { padding: 10px 16px; border: 0; border-radius: 5px; background: #102b4d; color: white; cursor: pointer; }
+.filters button:hover { background: #087d55; }
+.job { background: white; padding: 20px; border-radius: 9px; margin-bottom: 15px; border: 1px solid #e3eaf1; }
+.job h3 { color: #102e50; margin-bottom: 7px; }
+.job p { color: #596579; font-size: 14px; margin-bottom: 7px; }
+.status { display: inline-block; background: #e3f8ef; color: #087d55; padding: 3px 9px; border-radius: 20px; font-size: 11px; margin-bottom: 9px; }
+.job a { display: inline-block; margin-top: 8px; background: #087d55; color: white; padding: 9px 14px; border-radius: 5px; text-decoration: none; font-size: 13px; }
+.note { background: #eaf3ff; padding: 17px; border-left: 4px solid #2877c7; border-radius: 5px; font-size: 14px; }
+footer { background: #071b35; color: white; text-align: center; padding: 25px; font-size: 13px; }
+footer a { color: #20c785; text-decoration: none; }
+</style>
+</head>
+
+<body>
+
+<header>
+<h2>🇸🇿 Eswatini <span>Jobs Hub</span></h2>
+<p>Your next opportunity starts here.</p>
+</header>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="jobs.html">Jobs Board</a>
+<a href="articles/graduate-internships.html">Internships</a>
+<a href="articles/bursaries.html">Bursaries</a>
+</nav>
+
+<div class="hero">
+<h1>Find Your Next Job</h1>
+<p>Explore employment opportunities in Eswatini and South Africa.</p>
+</div>
+
+<main>
+
+<section>
+<h2>Browse Opportunities</h2>
+<div class="filters">
+<button onclick="filterJobs('all')">All Jobs</button>
+<button onclick="filterJobs('eswatini')">Eswatini</button>
+<button onclick="filterJobs('south-africa')">South Africa</button>
+<button onclick="filterJobs('internship')">Internships</button>
+</div>
+</section>
+
+<section id="jobs">
+
+<h2>Available Job Resources</h2>
+
+<div class="job" data-country="eswatini">
+<span class="status">Job Search Resource</span>
+<h3>Eswatini Government Vacancies</h3>
+<p><strong>Location:</strong> Eswatini</p>
+<p>Check official government recruitment announcements and application requirements.</p>
+<a href="https://www.gov.sz/" target="_blank" rel="noopener">Visit Government Website</a>
+</div>
+
+<div class="job" data-country="eswatini">
+<span class="status">Job Search Resource</span>
+<h3>Eswatini Public Service Opportunities</h3>
+<p><strong>Location:</strong> Eswatini</p>
+<p>Look for public service recruitment announcements and official vacancy information.</p>
+<a href="https://www.gov.sz/" target="_blank" rel="noopener">Check Official Website</a>
+</div>
+
+<div class="job" data-country="south-africa">
+<span class="status">Job Search Resource</span>
+<h3>South African Government Vacancies</h3>
+<p><strong>Location:</strong> South Africa</p>
+<p>Explore government vacancies and recruitment notices published through official channels.</p>
+<a href="https://www.dpsa.gov.za/" target="_blank" rel="noopener">Visit DPSA Website</a>
+</div>
+
+<div class="job" data-country="south-africa">
+<span class="status">Job Search Resource</span>
+<h3>South African Public Service Jobs</h3>
+<p><strong>Location:</strong> South Africa</p>
+<p>Find public service vacancy information and official application instructions.</p>
+<a href="https://www.gov.za/" target="_blank" rel="noopener">Visit Government Website</a>
+</div>
+
+<div class="job" data-country="internship">
+<span class="status">Internship Resource</span>
+<h3>Graduate Internship Opportunities</h3>
+<p><strong>Location:</strong> Eswatini and South Africa</p>
+<p>Learn how to find graduate internships and prepare your application.</p>
+<a href="articles/graduate-internships.html">Read Internship Guide</a>
+</div>
+
+</section>
+
+<section>
+<div class="note">
+<strong>Important:</strong> These are official job-search resources, not confirmed individual vacancies. Always check the original employer's website for current openings, deadlines and requirements. Never pay anyone to secure employment.
+</div>
+</section>
+
+</main>
+
+<footer>
+<p>© 2026 Eswatini Jobs Hub</p>
+<p><a href="index.html">Return to Homepage</a></p>
+</footer>
+
+<script>
+function filterJobs(type) {
+  const jobs = document.querySelectorAll(".job");
+
+  jobs.forEach(job => {
+    if (type === "all" || job.dataset.country === type) {
+      job.style.display = "block";
+    } else {
+      job.style.display = "none";
+    }
+  });
+}
+</script>
+
+</body>
+</html>
