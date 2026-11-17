@@ -4,130 +4,245 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eswatini Jobs Hub | Admin Dashboard</title>
+<title>Admin Dashboard | Eswatini Jobs Hub</title>
+
 <style>
-* { box-sizing:border-box; }
-body { margin:0; font-family:Arial,sans-serif; background:#f2f5f9; color:#182235; visibility:hidden; }
-header { background:#071b35; color:white; padding:22px; }
-header span { color:#20c785; }
-main { max-width:850px; margin:25px auto; padding:0 15px; }
-.panel { background:white; padding:22px; border-radius:10px; margin-bottom:20px; box-shadow:0 3px 12px #0000000d; }
-h2 { color:#09294b; margin-top:0; }
-label { display:block; margin-top:14px; font-weight:bold; font-size:14px; }
-input,select,textarea { width:100%; padding:12px; margin-top:6px; border:1px solid #ccd5df; border-radius:6px; font-size:15px; }
-textarea { min-height:85px; resize:vertical; }
-button { padding:12px 17px; margin:8px 5px 0 0; border:0; border-radius:6px; background:#087d55; color:white; font-weight:bold; cursor:pointer; }
-.secondary { background:#102b4d; }
-.danger { background:#b42318; }
-.notice { background:#eaf3ff; padding:13px; border-left:4px solid #2877c7; font-size:13px; margin-bottom:18px; }
-.preview { border:1px solid #dce5ed; border-radius:8px; padding:18px; margin-top:12px; }
-.preview h3 { color:#102e50; }
-.preview p { font-size:14px; color:#596579; }
-.status { display:inline-block; background:#e3f8ef; color:#087d55; padding:4px 9px; border-radius:20px; font-size:12px; }
-.expired { background:#fee4e2; color:#b42318; }
-.saved-item { border:1px solid #dce5ed; padding:15px; border-radius:8px; margin:12px 0; }
-.saved-item h3 { margin:5px 0; }
-#output { min-height:210px; font-family:monospace; font-size:13px; }
-footer { text-align:center; padding:25px; color:#667085; font-size:13px; }
-a { color:#087d55; }
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f2f5f9;
+  color: #182235;
+  visibility: hidden;
+}
+
+header {
+  background: #10264a;
+  color: white;
+  padding: 22px;
+}
+
+header h1 {
+  margin: 0 0 8px;
+}
+
+header p {
+  margin: 0;
+  color: #cbd5e1;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 25px auto;
+  padding: 15px;
+}
+
+.panel {
+  background: white;
+  padding: 22px;
+  border-radius: 12px;
+  margin-bottom: 22px;
+  box-shadow: 0 3px 12px rgba(0,0,0,.06);
+}
+
+h2 {
+  color: #10264a;
+  margin-top: 0;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin: 15px 0 7px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  font-size: 15px;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+button {
+  border: 0;
+  padding: 11px 15px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+.primary {
+  background: #059669;
+  color: white;
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+}
+
+.publish {
+  background: #059669;
+  color: white;
+}
+
+.unpublish {
+  background: #eab308;
+  color: #182235;
+}
+
+.delete {
+  background: #dc2626;
+  color: white;
+}
+
+.logout {
+  background: #dc2626;
+  color: white;
+  float: right;
+}
+
+.job {
+  border: 1px solid #e2e8f0;
+  padding: 17px;
+  border-radius: 9px;
+  margin-top: 15px;
+}
+
+.job h3 {
+  margin: 0 0 8px;
+  color: #10264a;
+}
+
+.status {
+  font-weight: bold;
+}
+
+#message {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.small {
+  color: #64748b;
+  font-size: 13px;
+}
+
+a {
+  color: #059669;
+}
+
+@media(max-width:600px) {
+  .panel {
+    padding: 16px;
+  }
+
+  header {
+    padding: 18px;
+  }
+}
 </style>
 </head>
 
 <body>
+
 <header>
-<h2>🇸🇿 Eswatini <span>Jobs Hub</span></h2>
-<p>Admin Dashboard | Vacancy Manager</p>
+  <button class="logout" id="logoutButton">Logout</button>
+  <h1>Eswatini Jobs Hub</h1>
+  <p>Administrator Dashboard</p>
 </header>
 
-<main>
+<div class="container">
 
-<div class="panel">
-<h2>Create a Job Listing</h2>
-<div class="notice">
-Enter accurate vacancy information. Verify every job with the original employer before publishing.
+  <section class="panel">
+    <h2>Add a New Vacancy</h2>
+
+    <form id="jobForm">
+
+      <label for="title">Job Title</label>
+      <input id="title" required placeholder="Example: Finance Officer">
+
+      <label for="employer">Employer</label>
+      <input id="employer" required placeholder="Company or organisation">
+
+      <label for="country">Country</label>
+      <select id="country" required>
+        <option value="Eswatini">Eswatini</option>
+        <option value="South Africa">South Africa</option>
+      </select>
+
+      <label for="location">Location</label>
+      <input id="location" required placeholder="Example: Mbabane">
+
+      <label for="salary">Salary</label>
+      <input id="salary" placeholder="Example: Negotiable">
+
+      <label for="closing_date">Closing Date</label>
+      <input id="closing_date" type="date" required>
+
+      <label for="requirements">Requirements</label>
+      <textarea id="requirements" required placeholder="Enter job requirements"></textarea>
+
+      <label for="application_link">Official Application Link</label>
+      <input id="application_link" type="url" required placeholder="https://example.com/apply">
+
+      <label for="status">Publication Status</label>
+      <select id="status">
+        <option value="draft">Save as Draft</option>
+        <option value="published">Publish Immediately</option>
+      </select>
+
+      <button class="primary" id="saveButton" type="submit">
+        Save Vacancy
+      </button>
+
+      <p id="message" role="status"></p>
+
+    </form>
+  </section>
+
+  <section class="panel">
+    <h2>Manage Vacancies</h2>
+    <p class="small">Vacancies saved in your Supabase database.</p>
+    <button class="publish" id="refreshButton">Refresh Vacancies</button>
+    <div id="jobsList">Loading vacancies...</div>
+  </section>
+
+  <p><a href="index.html">← Return to Homepage</a></p>
+
 </div>
 
-<form id="jobForm">
-<label>Job Title</label>
-<input id="title" required placeholder="Example: Finance Officer">
-
-<label>Employer</label>
-<input id="employer" required placeholder="Company or department">
-
-<label>Country</label>
-<select id="country">
-<option value="eswatini">Eswatini</option>
-<option value="south-africa">South Africa</option>
-</select>
-
-<label>Location</label>
-<input id="location" required placeholder="Example: Mbabane">
-
-<label>Salary</label>
-<input id="salary" placeholder="Example: E10,000 per month">
-
-<label>Closing Date</label>
-<input id="deadline" required type="date">
-
-<label>Requirements</label>
-<textarea id="requirements" required placeholder="Enter job requirements"></textarea>
-
-<label>Official HTTPS Application Link</label>
-<input id="apply" required type="url" placeholder="https://official-website.com">
-
-<button type="submit">Generate Vacancy</button>
-<button type="button" class="secondary" onclick="clearForm()">Clear Form</button>
-</form>
-</div>
-
-<div class="panel" id="previewPanel" hidden>
-<h2>Vacancy Preview</h2>
-<div id="preview" class="preview"></div>
-<p id="deadlineWarning"></p>
-<button type="button" onclick="saveVacancy()">Save Vacancy</button>
-<button type="button" class="secondary" onclick="copyListing()">Copy HTML Listing</button>
-</div>
-
-<div class="panel" id="outputPanel" hidden>
-<h2>Generated HTML</h2>
-<textarea id="output" readonly></textarea>
-<p id="copyMessage"></p>
-</div>
-
-<div class="panel">
-<h2>My Saved Vacancies</h2>
-<p>Saved vacancies are stored in this browser on this device.</p>
-<div id="savedJobs"></div>
-</div>
-
-<div class="panel">
-<h2>Publishing Instructions</h2>
-<p>1. Generate and review your vacancy.</p>
-<p>2. Save it in your dashboard.</p>
-<p>3. Copy its HTML listing.</p>
-<p>4. Open jobs.html in GitHub.</p>
-<p>5. Paste the listing inside the jobs section and commit your changes.</p>
-</div>
-
-</main>
-
-<footer>
-Eswatini Jobs Hub Admin Dashboard
-<br><a href="jobs.html">View Jobs Board</a>
-</footer>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  
+
 <script>
-  
-const adminSupabase = window.supabase.createClient(
-  "https://estfnipzuevqiomildog.supabase.co",
-  "sb_publishable_Vw3gedgG9p8oY7rmlYXFWg_p9t1iCR7"
+const SUPABASE_URL = "https://estfnipzuevqiomildog.supabase.co";
+const SUPABASE_KEY = "sb_publishable_Vw3gedgG9p8oY7rmlYXFWg_p9t1iCR7";
+
+const client = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
 );
 
-(async function checkAdminAccess() {
+const message = document.getElementById("message");
+const jobForm = document.getElementById("jobForm");
+const saveButton = document.getElementById("saveButton");
+const jobsList = document.getElementById("jobsList");
+
+let adminReady = false;
+
+// SECURITY CHECK
+async function checkAdminAccess() {
   try {
     const { data: { session }, error } =
-      await adminSupabase.auth.getSession();
+      await client.auth.getSession();
 
     if (error || !session) {
       window.location.replace("login.html");
@@ -135,197 +250,201 @@ const adminSupabase = window.supabase.createClient(
     }
 
     const { data: isAdmin, error: adminError } =
-      await adminSupabase.rpc("is_admin");
+      await client.rpc("is_admin");
 
     if (adminError || isAdmin !== true) {
-      await adminSupabase.auth.signOut();
+      await client.auth.signOut();
       window.location.replace("login.html");
       return;
     }
 
+    adminReady = true;
     document.body.style.visibility = "visible";
+
+    await loadJobs();
 
   } catch (error) {
     window.location.replace("login.html");
   }
-})();
-      
-let currentVacancy = null;
-
-function escapeHTML(value) {
-  return String(value).replace(/[&<>"']/g, char => ({
-    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
-  })[char]);
 }
 
-function getSavedJobs() {
-  try {
-    return JSON.parse(localStorage.getItem("eswatiniSavedJobs") || "[]");
-  } catch (error) {
-    return [];
-  }
-}
+// LOAD VACANCIES
+async function loadJobs() {
+  if (!adminReady) return;
 
-function createHTML(job) {
-  return `<div class="job" data-country="${job.country}">
-<span class="status">Closing date: ${job.formattedDate}</span>
-<h3>${escapeHTML(job.title)}</h3>
-<p><strong>Employer:</strong> ${escapeHTML(job.employer)}</p>
-<p><strong>Location:</strong> ${escapeHTML(job.location)}</p>
-<p><strong>Salary:</strong> ${escapeHTML(job.salary || "Not published")}</p>
-<p><strong>Requirements:</strong> ${escapeHTML(job.requirements)}</p>
-<p><strong>Closing date:</strong> ${job.formattedDate}</p>
-<a href="${escapeHTML(job.apply)}" target="_blank" rel="noopener">Apply on Official Website</a>
-</div>`;
-}
+  jobsList.textContent = "Loading vacancies...";
 
-document.getElementById("jobForm").addEventListener("submit", function(event) {
-  event.preventDefault();
+  const { data, error } = await client
+    .from("jobs")
+    .select("*")
+    .order("created_at", { ascending: false });
 
-  const apply = document.getElementById("apply").value.trim();
-
-  if (!/^https:\/\//i.test(apply)) {
-    alert("Please enter a secure HTTPS application link.");
+  if (error) {
+    jobsList.textContent = "Could not load vacancies: " + error.message;
     return;
   }
 
-  const deadline = document.getElementById("deadline").value;
-  const formattedDate = new Date(deadline + "T12:00:00").toLocaleDateString("en-GB");
+  if (!data || data.length === 0) {
+    jobsList.textContent = "No vacancies saved yet.";
+    return;
+  }
 
-  currentVacancy = {
-    id: Date.now().toString(),
+  jobsList.innerHTML = "";
+
+  data.forEach(job => {
+    const card = document.createElement("div");
+    card.className = "job";
+
+    const title = document.createElement("h3");
+    title.textContent = job.title;
+
+    const details = document.createElement("p");
+    details.textContent =
+      job.employer + " | " + job.country + " | " + job.location;
+
+    const deadline = document.createElement("p");
+    deadline.textContent = "Closing date: " + job.closing_date;
+
+    const status = document.createElement("p");
+    status.className = "status";
+    status.textContent = "Status: " + job.status.toUpperCase();
+
+    const publishButton = document.createElement("button");
+    publishButton.className =
+      job.status === "published" ? "unpublish" : "publish";
+
+    publishButton.textContent =
+      job.status === "published" ? "Unpublish" : "Publish";
+
+    publishButton.addEventListener("click", () => {
+      changeStatus(job.id, job.status);
+    });
+
+    const deleteButton = document.createElement("button");
+    deleteButton.className = "delete";
+    deleteButton.textContent = "Delete";
+
+    deleteButton.addEventListener("click", () => {
+      deleteJob(job.id);
+    });
+
+    card.append(
+      title,
+      details,
+      deadline,
+      status,
+      publishButton,
+      deleteButton
+    );
+
+    jobsList.appendChild(card);
+  });
+}
+
+// SAVE NEW VACANCY
+jobForm.addEventListener("submit", async function(event) {
+  event.preventDefault();
+
+  if (!adminReady) return;
+
+  saveButton.disabled = true;
+  saveButton.textContent = "Saving...";
+  message.textContent = "";
+
+  const applicationLink =
+    document.getElementById("application_link").value.trim();
+
+  if (!["http:", "https:"].includes(new URL(applicationLink).protocol)) {
+    message.textContent = "Please enter a valid HTTP or HTTPS application link.";
+    saveButton.disabled = false;
+    saveButton.textContent = "Save Vacancy";
+    return;
+  }
+
+  const vacancy = {
     title: document.getElementById("title").value.trim(),
     employer: document.getElementById("employer").value.trim(),
     country: document.getElementById("country").value,
     location: document.getElementById("location").value.trim(),
-    salary: document.getElementById("salary").value.trim() || "Not published",
-    deadline: deadline,
-    formattedDate: formattedDate,
+    salary: document.getElementById("salary").value.trim(),
+    closing_date: document.getElementById("closing_date").value,
     requirements: document.getElementById("requirements").value.trim(),
-    apply: apply
+    application_link: applicationLink,
+    status: document.getElementById("status").value
   };
 
-  const expired = deadline < new Date().toISOString().slice(0,10);
+  const { error } = await client
+    .from("jobs")
+    .insert([vacancy]);
 
-  document.getElementById("preview").innerHTML = `
-    <span class="status ${expired ? "expired" : ""}">
-      ${expired ? "Deadline has passed" : "Closing date: " + formattedDate}
-    </span>
-    <h3>${escapeHTML(currentVacancy.title)}</h3>
-    <p><strong>Employer:</strong> ${escapeHTML(currentVacancy.employer)}</p>
-    <p><strong>Location:</strong> ${escapeHTML(currentVacancy.location)}</p>
-    <p><strong>Salary:</strong> ${escapeHTML(currentVacancy.salary)}</p>
-    <p><strong>Requirements:</strong> ${escapeHTML(currentVacancy.requirements)}</p>
-    <p><strong>Closing date:</strong> ${formattedDate}</p>
-    <a href="${escapeHTML(apply)}" target="_blank" rel="noopener">Application link preview</a>
-  `;
+  if (error) {
+    message.textContent = "Error: " + error.message;
+  } else {
+    message.textContent = "Vacancy saved successfully!";
+    jobForm.reset();
+    await loadJobs();
+  }
 
-  document.getElementById("deadlineWarning").textContent =
-    expired ? "Warning: This vacancy has expired. Do not publish it as open." :
-    "Check with the employer that this vacancy is still open before publishing.";
-
-  document.getElementById("output").value = createHTML(currentVacancy);
-  document.getElementById("previewPanel").hidden = false;
-  document.getElementById("outputPanel").hidden = false;
-  document.getElementById("copyMessage").textContent = "";
+  saveButton.disabled = false;
+  saveButton.textContent = "Save Vacancy";
 });
 
-function saveVacancy() {
-  if (!currentVacancy) return;
+// PUBLISH OR UNPUBLISH
+async function changeStatus(id, currentStatus) {
+  if (!adminReady) return;
 
-  if (currentVacancy.deadline < new Date().toISOString().slice(0,10)) {
-    alert("This vacancy has expired. It cannot be saved as an open vacancy.");
+  const newStatus =
+    currentStatus === "published" ? "draft" : "published";
+
+  const { error } = await client
+    .from("jobs")
+    .update({ status: newStatus })
+    .eq("id", id);
+
+  if (error) {
+    alert("Could not update vacancy: " + error.message);
     return;
   }
 
-  const jobs = getSavedJobs();
-  jobs.unshift(currentVacancy);
-
-  try {
-    localStorage.setItem("eswatiniSavedJobs", JSON.stringify(jobs));
-    renderSavedJobs();
-    alert("Vacancy saved successfully!");
-  } catch (error) {
-    alert("Could not save. Your browser storage may be full.");
-  }
+  await loadJobs();
 }
 
-function renderSavedJobs() {
-  const container = document.getElementById("savedJobs");
-  const jobs = getSavedJobs();
+// DELETE VACANCY
+async function deleteJob(id) {
+  if (!adminReady) return;
 
-  if (jobs.length === 0) {
-    container.textContent = "No saved vacancies yet.";
+  if (!confirm("Are you sure you want to delete this vacancy?")) {
     return;
   }
 
-  container.innerHTML = "";
+  const { error } = await client
+    .from("jobs")
+    .delete()
+    .eq("id", id);
 
-  jobs.forEach(job => {
-    const expired = job.deadline < new Date().toISOString().slice(0,10);
-    const item = document.createElement("div");
-    item.className = "saved-item";
+  if (error) {
+    alert("Could not delete vacancy: " + error.message);
+    return;
+  }
 
-    const heading = document.createElement("h3");
-    heading.textContent = job.title;
+  await loadJobs();
+}
 
-    const employer = document.createElement("p");
-    employer.textContent = "Employer: " + job.employer;
+// REFRESH
+document.getElementById("refreshButton")
+  .addEventListener("click", loadJobs);
 
-    const deadline = document.createElement("p");
-    deadline.textContent = "Closing date: " + job.formattedDate;
-
-    const status = document.createElement("span");
-    status.className = "status" + (expired ? " expired" : "");
-    status.textContent = expired ? "Expired" : "Saved vacancy";
-
-    const copyButton = document.createElement("button");
-    copyButton.textContent = "Copy HTML";
-    copyButton.onclick = () => copyText(createHTML(job));
-
-    const deleteButton = document.createElement("button");
-    deleteButton.className = "danger";
-    deleteButton.textContent = "Delete";
-    deleteButton.onclick = () => deleteVacancy(job.id);
-
-    item.append(status, heading, employer, deadline, copyButton, deleteButton);
-    container.appendChild(item);
+// LOGOUT
+document.getElementById("logoutButton")
+  .addEventListener("click", async function() {
+    await client.auth.signOut();
+    window.location.replace("login.html");
   });
-}
 
-function deleteVacancy(id) {
-  if (!confirm("Delete this saved vacancy?")) return;
+// START
+checkAdminAccess();
+</script>
 
-  const jobs = getSavedJobs().filter(job => job.id !== id);
-  localStorage.setItem("eswatiniSavedJobs", JSON.stringify(jobs));
-  renderSavedJobs();
-}
-
-function copyText(text) {
-  if (navigator.clipboard && window.isSecureContext) {
-    navigator.clipboard.writeText(text).then(() => {
-      alert("HTML copied successfully!");
-    }).catch(() => {
-      prompt("Copy this HTML:", text);
-    });
-  } else {
-    prompt("Copy this HTML:", text);
-  }
-}
-
-function copyListing() {
-  if (currentVacancy) copyText(createHTML(currentVacancy));
-}
-
-function clearForm() {
-  document.getElementById("jobForm").reset();
-  document.getElementById("previewPanel").hidden = true;
-  document.getElementById("outputPanel").hidden = true;
-  document.getElementById("output").value = "";
-  currentVacancy = null;
-}
-
-renderSavedJobs();
-  </script>
 </body>
-</html>
+  </html>
+  
