@@ -1,0 +1,8 @@
+
+User-agent: *
+Allow: /
+
+Disallow: /admin.html
+Disallow: /login.html
+
+Sitemap: https://bangzoviper-bot.github.io/eswatini-jobs-hub/sitemap.xml
