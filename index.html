@@ -2,276 +2,647 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eswatini Jobs Hub | Jobs, Internships & Bursaries</title>
-  <meta name="description" content="Discover job opportunities in Eswatini and South Africa, graduate internships, bursaries, CV advice and interview tips.">
-  <meta name="robots" content="index, follow">
-  <meta property="og:title" content="Eswatini Jobs Hub">
-  <meta property="og:description" content="Your next opportunity starts here.">
-  <meta property="og:type" content="website">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f7fb;
-      color: #182235;
-      line-height: 1.6;
-    }
-    header {
-      background: #071b35;
-      color: white;
-      padding: 20px 5%;
-    }
-    .brand { font-size: 25px; font-weight: bold; }
-    .brand span { color: #20c785; }
-    .tagline { color: #d5e2ef; font-size: 13px; }
-    nav {
-      background: #102b4d;
-      padding: 12px 5%;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-size: 14px;
-    }
-    nav a:hover { color: #20c785; }
-    .hero {
-      background: linear-gradient(120deg, #071b35, #145b50);
-      color: white;
-      text-align: center;
-      padding: 65px 20px;
-    }
-    .hero h1 { font-size: 34px; margin-bottom: 12px; }
-    .hero p { margin-bottom: 22px; color: #e1f0ec; }
-    .search {
-      max-width: 550px;
-      margin: auto;
-      display: flex;
-      gap: 8px;
-    }
-    .search input {
-      flex: 1;
-      min-width: 0;
-      padding: 14px;
-      border: none;
-      border-radius: 6px;
-      font-size: 15px;
-    }
-    .search button {
-      background: #20c785;
-      color: #062b20;
-      border: none;
-      padding: 12px 18px;
-      border-radius: 6px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    main { max-width: 1100px; margin: auto; padding: 35px 18px; }
-    section { margin-bottom: 38px; }
-    h2 { color: #09294b; margin-bottom: 17px; font-size: 23px; }
-    .intro { color: #596579; margin-top: -10px; margin-bottom: 18px; }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 17px;
-    }
-    .card {
-      background: white;
-      padding: 21px;
-      border-radius: 10px;
-      border: 1px solid #e3eaf1;
-      box-shadow: 0 3px 12px rgba(0,0,0,.04);
-    }
-    .card h3 { color: #102e50; margin-bottom: 8px; }
-    .card p { color: #596579; font-size: 14px; margin-bottom: 13px; }
-    .card a {
-      color: #087d55;
-      font-weight: bold;
-      text-decoration: none;
-    }
-    .card a:hover { text-decoration: underline; }
-    .tag {
-      display: inline-block;
-      background: #e3f8ef;
-      color: #087d55;
-      padding: 4px 9px;
-      border-radius: 20px;
-      font-size: 11px;
-      margin-bottom: 10px;
-    }
-    .notice {
-      background: #eaf3ff;
-      border-left: 4px solid #2877c7;
-      padding: 17px;
-      border-radius: 5px;
-      color: #29445f;
-      font-size: 14px;
-    }
-    .about {
-      background: #fff;
-      padding: 25px;
-      border-radius: 10px;
-    }
-    footer {
-      background: #071b35;
-      color: #d5e2ef;
-      text-align: center;
-      padding: 27px 15px;
-      font-size: 13px;
-    }
-    footer a { color: #20c785; text-decoration: none; margin: 0 8px; }
-    @media(max-width: 500px) {
-      .hero h1 { font-size: 27px; }
-      .search { flex-direction: column; }
-      .search button { padding: 13px; }
-    }
-  </style>
+<title>Eswatini Jobs Hub | Find Jobs, Internships and Bursaries</title>
+
+<meta name="description" content="Discover the latest jobs in Eswatini and South Africa, graduate internships, bursaries and career opportunities. Your next opportunity starts here.">
+
+<meta name="keywords" content="Eswatini jobs, jobs in Eswatini, South Africa jobs, internships, bursaries, graduate jobs, vacancies">
+
+<meta name="author" content="Eswatini Jobs Hub">
+
+<meta property="og:title" content="Eswatini Jobs Hub">
+<meta property="og:description" content="Find your next job opportunity in Eswatini and South Africa.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bangzoviper-bot.github.io/eswatini-jobs-hub/">
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #17243a;
+  background: #f5f7fb;
+  line-height: 1.6;
+}
+
+header {
+  background: #10264a;
+  color: white;
+}
+
+.topbar {
+  max-width: 1150px;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #34d399;
+}
+
+nav {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #34d399;
+}
+
+.hero {
+  background: linear-gradient(135deg, #10264a, #164e63);
+  color: white;
+  text-align: center;
+  padding: 75px 20px 85px;
+}
+
+.hero h1 {
+  font-size: clamp(32px, 6vw, 53px);
+  line-height: 1.15;
+  max-width: 800px;
+  margin: auto auto 18px;
+}
+
+.hero h1 span {
+  color: #34d399;
+}
+
+.hero p {
+  color: #dbeafe;
+  font-size: 17px;
+  margin-bottom: 28px;
+}
+
+.search-box {
+  background: white;
+  max-width: 750px;
+  padding: 10px;
+  margin: auto;
+  border-radius: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.search-box input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  padding: 13px;
+  font-size: 16px;
+}
+
+.search-box button {
+  background: #059669;
+  color: white;
+  border: 0;
+  padding: 13px 22px;
+  border-radius: 7px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.search-box button:hover {
+  background: #047857;
+}
+
+.container {
+  max-width: 1150px;
+  margin: auto;
+  padding: 45px 20px;
+}
+
+.section-heading {
+  margin-bottom: 22px;
+}
+
+.section-heading h2 {
+  color: #10264a;
+  font-size: 27px;
+  margin-bottom: 5px;
+}
+
+.section-heading p {
+  color: #64748b;
+}
+
+.quick-links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 17px;
+}
+
+.quick-card {
+  background: white;
+  border-radius: 12px;
+  padding: 23px;
+  text-decoration: none;
+  color: #10264a;
+  border: 1px solid #e2e8f0;
+  transition: .2s;
+}
+
+.quick-card:hover {
+  transform: translateY(-4px);
+  border-color: #059669;
+}
+
+.quick-card .symbol {
+  font-size: 29px;
+  margin-bottom: 10px;
+}
+
+.quick-card h3 {
+  margin-bottom: 5px;
+  font-size: 17px;
+}
+
+.quick-card p {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.job-section {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 22px;
+}
+
+.job-section h2 {
+  color: #10264a;
+  margin-bottom: 5px;
+}
+
+.job-section > p {
+  color: #64748b;
+  margin-bottom: 18px;
+}
+
+.job-card {
+  border: 1px solid #e2e8f0;
+  padding: 18px;
+  border-radius: 9px;
+  margin-top: 13px;
+}
+
+.job-card h3 {
+  color: #10264a;
+  margin-bottom: 5px;
+}
+
+.job-details {
+  color: #64748b;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.apply-btn {
+  display: inline-block;
+  background: #059669;
+  color: white;
+  text-decoration: none;
+  padding: 9px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.apply-btn:hover {
+  background: #047857;
+}
+
+.view-all {
+  display: inline-block;
+  margin-top: 20px;
+  color: #059669;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.opportunity-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.opportunity-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.opportunity-card h3 {
+  color: #10264a;
+  margin-bottom: 8px;
+}
+
+.opportunity-card p {
+  color: #64748b;
+  margin-bottom: 15px;
+}
+
+.opportunity-card a {
+  color: #059669;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.notice {
+  background: #e0f2fe;
+  border-left: 4px solid #0284c7;
+  padding: 20px;
+  border-radius: 7px;
+  margin-top: 35px;
+}
+
+footer {
+  background: #10264a;
+  color: white;
+  padding: 40px 20px;
+}
+
+.footer-content {
+  max-width: 1150px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 30px;
+}
+
+footer h3 {
+  margin-bottom: 12px;
+  color: #34d399;
+}
+
+footer p {
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+footer a {
+  color: #cbd5e1;
+  text-decoration: none;
+  display: block;
+  margin: 7px 0;
+  font-size: 14px;
+}
+
+.copyright {
+  text-align: center;
+  border-top: 1px solid #334155;
+  padding-top: 20px;
+  margin-top: 30px;
+  color: #cbd5e1;
+  font-size: 13px;
+}
+
+#jobMessage {
+  color: #64748b;
+  margin-top: 12px;
+}
+
+@media(max-width:800px) {
+  .topbar {
+    flex-direction: column;
+  }
+
+  nav {
+    justify-content: center;
+  }
+
+  .quick-links {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(max-width:550px) {
+  .search-box {
+    flex-direction: column;
+  }
+
+  .search-box button {
+    width: 100%;
+  }
+
+  .quick-links,
+  .opportunity-grid,
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 55px 17px;
+  }
+
+  .job-section {
+    padding: 17px;
+  }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <div class="brand">🇸🇿 Eswatini <span>Jobs Hub</span></div>
-  <div class="tagline">Your next opportunity starts here.</div>
+  <div class="topbar">
+    <div class="logo">
+      Eswatini <span>Jobs Hub</span>
+    </div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="jobs.html">Jobs</a>
+      <a href="articles/graduate-internships.html">Internships</a>
+      <a href="articles/bursaries.html">Bursaries</a>
+      <a href="articles/interview-tips.html">Career Advice</a>
+    </nav>
+  </div>
 </header>
 
-<nav>
-  <a href="#home">Home</a>
-  <a href="jobs.html">Jobs Board</a>
-  <a href="#eswatini">Eswatini Jobs</a>
-  <a href="#south-africa">South African Jobs</a>
-  <a href="#opportunities">Opportunities</a>
-  <a href="#career">Career Advice</a>
-</nav>
+<section class="hero">
+  <h1>Your Next <span>Opportunity</span> Starts Here.</h1>
 
-<div class="hero" id="home">
-  <h1>Find Your Next Opportunity</h1>
-  <p>Jobs, internships, bursaries and career advice in one place.</p>
-  <div class="search">
-    <input type="text" id="searchInput" placeholder="Search jobs and career articles...">
-    <button onclick="searchCards()">Search</button>
-  </div>
-</div>
+  <p>
+    Discover jobs, internships and career opportunities
+    in Eswatini and South Africa.
+  </p>
+
+  <form class="search-box" id="searchForm">
+    <input
+      type="search"
+      id="homeSearch"
+      placeholder="Search jobs, companies or locations..."
+      aria-label="Search jobs"
+    >
+    <button type="submit">Find Jobs</button>
+  </form>
+</section>
 
 <main>
 
-  <section id="eswatini">
-    <h2>🇸🇿 Eswatini Jobs</h2>
-    <p class="intro">Explore employment information and opportunities in Eswatini.</p>
-    <div class="grid">
-      <article class="card searchable">
-        <span class="tag">Eswatini</span>
-        <h3>Latest Job Opportunities</h3>
-        <p>Visit our jobs page for information about vacancies and where to find them.</p>
-        <a href="articles/latest-jobs.html">Explore jobs →</a>
-      </article>
-      <article class="card searchable">
-        <span class="tag">Career Guide</span>
-        <h3>Jobs in Matsapha</h3>
-        <p>Learn how to search for employment around Matsapha and nearby areas.</p>
-        <a href="articles/latest-jobs.html">Read job guide →</a>
-      </article>
-    </div>
-  </section>
+<section class="container">
+  <div class="section-heading">
+    <h2>Explore Opportunities</h2>
+    <p>Find the opportunities that match your goals.</p>
+  </div>
 
-  <section id="south-africa">
-    <h2>🇿🇦 South African Jobs</h2>
-    <p class="intro">Career information for people interested in opportunities across the border.</p>
-    <div class="grid">
-      <article class="card searchable">
-        <span class="tag">South Africa</span>
-        <h3>South African Opportunities</h3>
-        <p>Explore job-search resources and learn how to find vacancies in South Africa.</p>
-        <a href="articles/latest-jobs.html">Explore opportunities →</a>
-      </article>
-    </div>
-  </section>
+  <div class="quick-links">
 
-  <section id="opportunities">
-    <h2>🎓 Latest Opportunities</h2>
-    <p class="intro">Resources for students, graduates and people starting their careers.</p>
-    <div class="grid">
-      <article class="card searchable">
-        <span class="tag">Internships</span>
-        <h3>Graduate Internships</h3>
-        <p>Discover how to find and apply for graduate internship programmes.</p>
-        <a href="articles/graduate-internships.html">Read more →</a>
-      </article>
-      <article class="card searchable">
-        <span class="tag">Education</span>
-        <h3>Bursaries & Scholarships</h3>
-        <p>Learn where to look for financial support for your studies.</p>
-        <a href="articles/bursaries.html">Explore bursaries →</a>
-      </article>
-    </div>
-  </section>
+    <a class="quick-card" href="jobs.html">
+      <div class="symbol">💼</div>
+      <h3>Latest Jobs</h3>
+      <p>Explore available vacancies.</p>
+    </a>
 
-  <section id="career">
-    <h2>💼 Career Advice</h2>
-    <div class="grid">
-      <article class="card searchable">
-        <span class="tag">CV Writing</span>
-        <h3>How to Write a Professional CV</h3>
-        <p>Learn how to create a CV that presents your skills and experience clearly.</p>
-        <a href="articles/how-to-write-a-cv.html">Read CV guide →</a>
-      </article>
-      <article class="card searchable">
-        <span class="tag">Interview Preparation</span>
-        <h3>Interview Tips</h3>
-        <p>Prepare for common interview questions and make a strong impression.</p>
-        <a href="articles/interview-tips.html">Read interview tips →</a>
-      </article>
-    </div>
-  </section>
+    <a class="quick-card" href="articles/graduate-internships.html">
+      <div class="symbol">🎓</div>
+      <h3>Internships</h3>
+      <p>Discover graduate opportunities.</p>
+    </a>
 
-  <section>
-    <h2>Important Notice</h2>
-    <div class="notice">
-      Eswatini Jobs Hub is an independent job-information website. We are not a recruitment agency or government department. Always confirm vacancies, closing dates and application instructions directly with the official employer. Never pay someone to secure a job.
-    </div>
-  </section>
+    <a class="quick-card" href="articles/bursaries.html">
+      <div class="symbol">📚</div>
+      <h3>Bursaries</h3>
+      <p>Find education funding information.</p>
+    </a>
 
-  <section class="about">
-    <h2>About Eswatini Jobs Hub</h2>
-    <p>Our goal is to help job seekers in Eswatini and South Africa discover employment resources, internships, bursaries and practical career advice. Your next opportunity starts here.</p>
-  </section>
+    <a class="quick-card" href="articles/how-to-write-a-cv.html">
+      <div class="symbol">📄</div>
+      <h3>CV Resources</h3>
+      <p>Improve your job application.</p>
+    </a>
+
+  </div>
+</section>
+
+<section class="container">
+
+  <div class="job-section">
+    <h2>Latest Job Opportunities</h2>
+    <p>Recently published vacancies from our jobs database.</p>
+
+    <div id="jobMessage">Loading the latest vacancies...</div>
+    <div id="latestJobs"></div>
+
+    <a class="view-all" href="jobs.html">
+      View All Vacancies →
+    </a>
+  </div>
+
+</section>
+
+<section class="container">
+
+  <div class="section-heading">
+    <h2>Explore by Country</h2>
+    <p>Discover employment opportunities across the region.</p>
+  </div>
+
+  <div class="opportunity-grid">
+
+    <div class="opportunity-card">
+      <h3>🇸🇿 Jobs in Eswatini</h3>
+      <p>
+        Explore local employment opportunities,
+        government vacancies and private-sector jobs.
+      </p>
+      <a href="jobs.html?country=Eswatini">Explore Eswatini Jobs →</a>
+    </div>
+
+    <div class="opportunity-card">
+      <h3>🇿🇦 Jobs in South Africa</h3>
+      <p>
+        Discover employment opportunities,
+        graduate programmes and internships in South Africa.
+      </p>
+      <a href="jobs.html?country=South%20Africa">Explore South African Jobs →</a>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="container">
+
+  <div class="section-heading">
+    <h2>Career Resources</h2>
+    <p>Practical information to help you move forward.</p>
+  </div>
+
+  <div class="opportunity-grid">
+
+    <div class="opportunity-card">
+      <h3>How to Write a Professional CV</h3>
+      <p>Learn how to prepare a CV that presents your skills and experience clearly.</p>
+      <a href="articles/how-to-write-a-cv.html">Read CV Guide →</a>
+    </div>
+
+    <div class="opportunity-card">
+      <h3>Prepare for Your Interview</h3>
+      <p>Learn how to answer common interview questions and improve your confidence.</p>
+      <a href="articles/interview-tips.html">Read Interview Tips →</a>
+    </div>
+
+  </div>
+
+  <div class="notice">
+    <strong>Important Safety Notice</strong>
+    <p>
+      Eswatini Jobs Hub is an independent job information platform.
+      Always verify vacancies through official employer websites.
+      Never pay money to secure a job or interview.
+    </p>
+  </div>
+
+</section>
 
 </main>
 
 <footer>
-  <p>© 2026 Eswatini Jobs Hub. All rights reserved.</p>
-  <p>
-    <a href="#home">Home</a>
-    <a href="articles/latest-jobs.html">Jobs</a>
-    <a href="articles/how-to-write-a-cv.html">CV Guide</a>
-  </p>
+  <div class="footer-content">
+
+    <div>
+      <h3>Eswatini Jobs Hub</h3>
+      <p>
+        Your next opportunity starts here.
+        Connecting job seekers with employment
+        and career opportunities.
+      </p>
+    </div>
+
+    <div>
+      <h3>Explore</h3>
+      <a href="index.html">Home</a>
+      <a href="jobs.html">Jobs Board</a>
+      <a href="articles/graduate-internships.html">Internships</a>
+      <a href="articles/bursaries.html">Bursaries</a>
+    </div>
+
+    <div>
+      <h3>Resources</h3>
+      <a href="articles/how-to-write-a-cv.html">CV Guide</a>
+      <a href="articles/interview-tips.html">Interview Tips</a>
+      <a href="articles/latest-jobs.html">Latest Jobs</a>
+    </div>
+
+  </div>
+
+  <div class="copyright">
+    © 2026 Eswatini Jobs Hub. All rights reserved.
+  </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
-  function searchCards() {
-    const query = document.getElementById("searchInput").value.toLowerCase().trim();
-    const cards = document.querySelectorAll(".searchable");
-    let found = 0;
+const SUPABASE_URL =
+  "https://estfnipzuevqiomildog.supabase.co";
 
-    cards.forEach(card => {
-      const matches = card.innerText.toLowerCase().includes(query);
-      card.style.display = matches ? "" : "none";
-      if (matches) found++;
-    });
+const SUPABASE_KEY =
+  "sb_publishable_Vw3gedgG9p8oY7rmlYXFWg_p9t1iCR7";
 
-    if (found === 0) {
-      alert("No matching articles found. Try another search.");
-    }
+const client = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+
+const latestJobs = document.getElementById("latestJobs");
+const jobMessage = document.getElementById("jobMessage");
+
+async function loadLatestJobs() {
+  const today = new Date();
+  const localToday = [
+    today.getFullYear(),
+    String(today.getMonth() + 1).padStart(2, "0"),
+    String(today.getDate()).padStart(2, "0")
+  ].join("-");
+
+  const { data, error } = await client
+    .from("jobs")
+    .select("*")
+    .eq("status", "published")
+    .gte("closing_date", localToday)
+    .order("created_at", { ascending: false })
+    .limit(6);
+
+  if (error) {
+    jobMessage.textContent =
+      "We could not load vacancies right now. Please visit the Jobs Board.";
+    return;
   }
 
-  document.getElementById("searchInput").addEventListener("keydown", function(event) {
-    if (event.key === "Enter") searchCards();
+  if (!data || data.length === 0) {
+    jobMessage.textContent =
+      "No current vacancies available. Please check again soon.";
+    return;
+  }
+
+  jobMessage.textContent = "";
+  latestJobs.innerHTML = "";
+
+  data.forEach(job => {
+    const card = document.createElement("article");
+    card.className = "job-card";
+
+    const title = document.createElement("h3");
+    title.textContent = job.title;
+
+    const details = document.createElement("p");
+    details.className = "job-details";
+    details.textContent =
+      job.employer + " | " + job.location +
+      " | " + job.country + " | Closing: " + job.closing_date;
+
+    const apply = document.createElement("a");
+    apply.className = "apply-btn";
+    apply.href = job.application_link;
+    apply.target = "_blank";
+    apply.rel = "noopener noreferrer";
+    apply.textContent = "Apply Now";
+
+    card.append(title, details, apply);
+    latestJobs.appendChild(card);
   });
+}
+
+document.getElementById("searchForm")
+  .addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const search = document.getElementById("homeSearch")
+      .value.trim();
+
+    window.location.href =
+      "jobs.html?q=" + encodeURIComponent(search);
+  });
+
+loadLatestJobs();
 </script>
 
 </body>
