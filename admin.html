@@ -115,8 +115,41 @@ Enter accurate vacancy information. Verify every job with the original employer 
 Eswatini Jobs Hub Admin Dashboard
 <br><a href="jobs.html">View Jobs Board</a>
 </footer>
-
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  
 <script>
+  
+const adminSupabase = window.supabase.createClient(
+  "https://estfnipzuevqiomildog.supabase.co",
+  "sb_publishable_Vw3gedgG9p8oY7rmlYXFWg_p9t1iCR7"
+);
+
+(async function checkAdminAccess() {
+  try {
+    const { data: { session }, error } =
+      await adminSupabase.auth.getSession();
+
+    if (error || !session) {
+      window.location.replace("login.html");
+      return;
+    }
+
+    const { data: isAdmin, error: adminError } =
+      await adminSupabase.rpc("is_admin");
+
+    if (adminError || isAdmin !== true) {
+      await adminSupabase.auth.signOut();
+      window.location.replace("login.html");
+      return;
+    }
+
+    document.body.style.visibility = "visible";
+
+  } catch (error) {
+    window.location.replace("login.html");
+  }
+})();
+      
 let currentVacancy = null;
 
 function escapeHTML(value) {
@@ -293,7 +326,6 @@ function clearForm() {
 }
 
 renderSavedJobs();
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-</script>
+  </script>
 </body>
 </html>
