@@ -6,13 +6,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Latest Jobs in Eswatini and South Africa | Eswatini Jobs Hub</title>
-
 <meta name="description" content="Find the latest jobs, internships and career opportunities in Eswatini and South Africa.">
 
 <style>
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -28,14 +25,8 @@ header {
   text-align: center;
 }
 
-header h1 {
-  margin: 0 0 10px;
-}
-
-header p {
-  color: #cbd5e1;
-  margin: 0;
-}
+header h1 { margin: 0 0 10px; }
+header p { color: #cbd5e1; margin: 0; }
 
 nav {
   background: #059669;
@@ -87,11 +78,6 @@ input, select {
   margin-top: 0;
 }
 
-.job-meta {
-  color: #64748b;
-  line-height: 1.8;
-}
-
 .job-description {
   white-space: pre-wrap;
   line-height: 1.6;
@@ -108,9 +94,7 @@ input, select {
   margin-top: 10px;
 }
 
-.apply-btn:hover {
-  background: #047857;
-}
+.apply-btn:hover { background: #047857; }
 
 #message {
   background: white;
@@ -128,18 +112,11 @@ footer {
   margin-top: 40px;
 }
 
-footer a {
-  color: #34d399;
-}
+footer a { color: #34d399; }
 
 @media(max-width:600px) {
-  nav a {
-    margin: 3px 5px;
-  }
-
-  .job-card {
-    padding: 17px;
-  }
+  nav a { margin: 3px 5px; }
+  .job-card { padding: 17px; }
 }
 </style>
 </head>
@@ -180,7 +157,6 @@ footer a {
   <h2>Available Vacancies</h2>
 
   <div id="message">Loading the latest vacancies...</div>
-
   <div id="jobsContainer"></div>
 
   <section class="search-panel">
@@ -214,33 +190,44 @@ const client = window.supabase.createClient(
   SUPABASE_KEY
 );
 
-const jobsContainer =
-  document.getElementById("jobsContainer");
-
-const message =
-  document.getElementById("message");
-
-const searchInput =
-  document.getElementById("searchInput");
-
-const countryFilter =
-  document.getElementById("countryFilter");
+const jobsContainer = document.getElementById("jobsContainer");
+const message = document.getElementById("message");
+const searchInput = document.getElementById("searchInput");
+const countryFilter = document.getElementById("countryFilter");
 
 let allJobs = [];
+
+// READ SEARCH AND COUNTRY FROM HOMEPAGE URL
+const urlParams = new URLSearchParams(window.location.search);
+
+const homepageSearch = urlParams.get("q");
+const homepageCountry = urlParams.get("country");
+
+if (homepageSearch) {
+  searchInput.value = homepageSearch;
+}
+
+if (
+  homepageCountry === "Eswatini" ||
+  homepageCountry === "South Africa"
+) {
+  countryFilter.value = homepageCountry;
+}
 
 function createJobCard(job) {
   const card = document.createElement("article");
   card.className = "job-card";
 
   const title = document.createElement("h2");
-  title.textContent = job.title;
+  title.textContent = job.title || "Untitled vacancy";
 
   const employer = document.createElement("p");
-  employer.textContent = "Employer: " + job.employer;
+  employer.textContent = "Employer: " + (job.employer || "Not specified");
 
   const location = document.createElement("p");
   location.textContent =
-    "Location: " + job.location + ", " + job.country;
+    "Location: " + (job.location || "Not specified") +
+    ", " + (job.country || "Not specified");
 
   const salary = document.createElement("p");
   salary.textContent =
@@ -248,19 +235,12 @@ function createJobCard(job) {
 
   const closing = document.createElement("p");
   closing.textContent =
-    "Closing date: " + job.closing_date;
+    "Closing date: " + (job.closing_date || "Not specified");
 
   const requirements = document.createElement("p");
   requirements.className = "job-description";
   requirements.textContent =
-    "Requirements: " + job.requirements;
-
-  const apply = document.createElement("a");
-  apply.className = "apply-btn";
-  apply.href = job.application_link;
-  apply.target = "_blank";
-  apply.rel = "noopener noreferrer";
-  apply.textContent = "Apply Now";
+    "Requirements: " + (job.requirements || "Not specified");
 
   card.append(
     title,
@@ -268,9 +248,18 @@ function createJobCard(job) {
     location,
     salary,
     closing,
-    requirements,
-    apply
+    requirements
   );
+
+  if (job.application_link) {
+    const apply = document.createElement("a");
+    apply.className = "apply-btn";
+    apply.href = job.application_link;
+    apply.target = "_blank";
+    apply.rel = "noopener noreferrer";
+    apply.textContent = "Apply Now";
+    card.appendChild(apply);
+  }
 
   return card;
 }
@@ -278,9 +267,7 @@ function createJobCard(job) {
 function displayJobs() {
   jobsContainer.innerHTML = "";
 
-  const search =
-    searchInput.value.toLowerCase().trim();
-
+  const search = searchInput.value.toLowerCase().trim();
   const country = countryFilter.value;
 
   const filteredJobs = allJobs.filter(job => {
@@ -292,8 +279,7 @@ function displayJobs() {
       job.requirements
     ].join(" ").toLowerCase();
 
-    const matchesSearch =
-      searchableText.includes(search);
+    const matchesSearch = searchableText.includes(search);
 
     const matchesCountry =
       country === "All" || job.country === country;
@@ -320,6 +306,7 @@ async function loadJobs() {
   message.style.display = "block";
 
   const today = new Date();
+
   const localToday = [
     today.getFullYear(),
     String(today.getMonth() + 1).padStart(2, "0"),
@@ -335,8 +322,7 @@ async function loadJobs() {
 
   if (error) {
     message.textContent =
-      "We could not load vacancies. Please refresh the page. Error: " +
-      error.message;
+      "We could not load vacancies. Please refresh the page.";
     return;
   }
 
