@@ -4,163 +4,350 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Latest Jobs | Eswatini Jobs Hub</title>
-<meta name="description" content="Explore job opportunities in Eswatini and South Africa. Find vacancies, application details and official employer links.">
+
+<title>Latest Jobs in Eswatini and South Africa | Eswatini Jobs Hub</title>
+
+<meta name="description" content="Find the latest jobs, internships and career opportunities in Eswatini and South Africa.">
 
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: Arial, sans-serif; background: #f4f7fb; color: #182235; line-height: 1.6; }
-header { background: #071b35; color: white; padding: 22px 5%; }
-header h2 span { color: #20c785; }
-nav { background: #102b4d; padding: 12px 5%; }
-nav a { color: white; text-decoration: none; margin-right: 20px; font-size: 14px; }
-.hero { background: linear-gradient(120deg,#071b35,#145b50); color: white; text-align: center; padding: 45px 15px; }
-.hero h1 { font-size: 30px; margin-bottom: 10px; }
-main { max-width: 1000px; margin: auto; padding: 30px 18px; }
-section { margin-bottom: 35px; }
-h2 { color: #09294b; margin-bottom: 15px; }
-.filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
-.filters button { padding: 10px 16px; border: 0; border-radius: 5px; background: #102b4d; color: white; cursor: pointer; }
-.filters button:hover { background: #087d55; }
-.job { background: white; padding: 20px; border-radius: 9px; margin-bottom: 15px; border: 1px solid #e3eaf1; }
-.job h3 { color: #102e50; margin-bottom: 7px; }
-.job p { color: #596579; font-size: 14px; margin-bottom: 7px; }
-.status { display: inline-block; background: #e3f8ef; color: #087d55; padding: 3px 9px; border-radius: 20px; font-size: 11px; margin-bottom: 9px; }
-.job a { display: inline-block; margin-top: 8px; background: #087d55; color: white; padding: 9px 14px; border-radius: 5px; text-decoration: none; font-size: 13px; }
-.note { background: #eaf3ff; padding: 17px; border-left: 4px solid #2877c7; border-radius: 5px; font-size: 14px; }
-footer { background: #071b35; color: white; text-align: center; padding: 25px; font-size: 13px; }
-footer a { color: #20c785; text-decoration: none; }
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f2f5f9;
+  color: #182235;
+}
+
+header {
+  background: #10264a;
+  color: white;
+  padding: 25px 15px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0 0 10px;
+}
+
+header p {
+  color: #cbd5e1;
+  margin: 0;
+}
+
+nav {
+  background: #059669;
+  padding: 13px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 12px;
+  display: inline-block;
+  padding: 5px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 25px auto;
+  padding: 15px;
+}
+
+.search-panel {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 22px;
+}
+
+input, select {
+  width: 100%;
+  padding: 13px;
+  margin-top: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  font-size: 16px;
+}
+
+.job-card {
+  background: white;
+  padding: 22px;
+  border-radius: 12px;
+  margin-bottom: 17px;
+  box-shadow: 0 3px 12px rgba(0,0,0,.05);
+}
+
+.job-card h2 {
+  color: #10264a;
+  margin-top: 0;
+}
+
+.job-meta {
+  color: #64748b;
+  line-height: 1.8;
+}
+
+.job-description {
+  white-space: pre-wrap;
+  line-height: 1.6;
+}
+
+.apply-btn {
+  display: inline-block;
+  background: #059669;
+  color: white;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 7px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.apply-btn:hover {
+  background: #047857;
+}
+
+#message {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  color: #64748b;
+}
+
+footer {
+  background: #10264a;
+  color: white;
+  text-align: center;
+  padding: 25px 15px;
+  margin-top: 40px;
+}
+
+footer a {
+  color: #34d399;
+}
+
+@media(max-width:600px) {
+  nav a {
+    margin: 3px 5px;
+  }
+
+  .job-card {
+    padding: 17px;
+  }
+}
 </style>
 </head>
 
 <body>
 
 <header>
-<h2>🇸🇿 Eswatini <span>Jobs Hub</span></h2>
-<p>Your next opportunity starts here.</p>
+  <h1>Eswatini Jobs Hub</h1>
+  <p>Your next opportunity starts here.</p>
 </header>
 
 <nav>
-<a href="index.html">Home</a>
-<a href="jobs.html">Jobs Board</a>
-<a href="articles/graduate-internships.html">Internships</a>
-<a href="articles/bursaries.html">Bursaries</a>
+  <a href="index.html">Home</a>
+  <a href="jobs.html">Jobs Board</a>
+  <a href="articles/latest-jobs.html">Latest Jobs</a>
+  <a href="articles/interview-tips.html">Interview Tips</a>
+  <a href="articles/how-to-write-a-cv.html">CV Guide</a>
 </nav>
 
-<div class="hero">
-<h1>Find Your Next Job</h1>
-<p>Explore employment opportunities in Eswatini and South Africa.</p>
-</div>
+<main class="container">
 
-<main>
+  <section class="search-panel">
+    <h2>Find Your Next Opportunity</h2>
 
-<section>
-<h2>Browse Opportunities</h2>
-<div class="filters">
-<button onclick="filterJobs('all')">All Jobs</button>
-<button onclick="filterJobs('eswatini')">Eswatini</button>
-<button onclick="filterJobs('south-africa')">South Africa</button>
-<button onclick="filterJobs('internship')">Internships</button>
-</div>
-</section>
+    <input
+      type="search"
+      id="searchInput"
+      placeholder="Search job title, employer or location..."
+    >
 
+    <select id="countryFilter">
+      <option value="All">All Countries</option>
+      <option value="Eswatini">Eswatini</option>
+      <option value="South Africa">South Africa</option>
+    </select>
+  </section>
 
-<section id="jobs">
+  <h2>Available Vacancies</h2>
 
-<h2>Verified Job Vacancies</h2>
+  <div id="message">Loading the latest vacancies...</div>
 
-<div class="job" data-country="eswatini">
-<span class="status">Open - Closes 21 November 2026</span>
-<h3>Compliance and Executive Support Officer</h3>
-<p><strong>Employer:</strong> Peace Corps Eswatini</p>
-<p><strong>Location:</strong> Mbabane, Eswatini</p>
-<p><strong>Salary:</strong> E403,632 – E605,438 per year</p>
-<p><strong>Requirements:</strong> Relevant degree, five years of experience, and professional fluency in siSwati and English.</p>
-<p><strong>Application deadline:</strong> 21 November 2026</p>
-<a href="mailto:sz01-jobs@peacecorps.gov?subject=Compliance%20and%20Executive%20Support%20Officer%20Application">Apply by Email</a>
-</div>
+  <div id="jobsContainer"></div>
 
-<div class="job" data-country="south-africa">
-<span class="status">Open - Closes 30 November 2026</span>
-<h3>Secretary - Department of Correctional Services</h3>
-<p><strong>Employer:</strong> South African Department of Correctional Services</p>
-<p><strong>Location:</strong> National Head Office, South Africa</p>
-<p><strong>Salary:</strong> R237,453 per year</p>
-<p><strong>Requirements:</strong> Grade 12 with typing as a subject, or another relevant typing qualification. No experience required.</p>
-<p><strong>Application deadline:</strong> 30 November 2026 at 15:45</p>
-<a href="https://careers.dcs.gov.za/" target="_blank" rel="noopener">Apply on Official Website</a>
-</div>
-
-<h2>Available Job Resources</h2>
-
-
-<div class="job" data-country="eswatini">
-<span class="status">Job Search Resource</span>
-<h3>Eswatini Government Vacancies</h3>
-<p><strong>Location:</strong> Eswatini</p>
-<p>Check official government recruitment announcements and application requirements.</p>
-<a href="https://www.gov.sz/" target="_blank" rel="noopener">Visit Government Website</a>
-</div>
-
-<div class="job" data-country="eswatini">
-<span class="status">Job Search Resource</span>
-<h3>Eswatini Public Service Opportunities</h3>
-<p><strong>Location:</strong> Eswatini</p>
-<p>Look for public service recruitment announcements and official vacancy information.</p>
-<a href="https://www.gov.sz/" target="_blank" rel="noopener">Check Official Website</a>
-</div>
-
-<div class="job" data-country="south-africa">
-<span class="status">Job Search Resource</span>
-<h3>South African Government Vacancies</h3>
-<p><strong>Location:</strong> South Africa</p>
-<p>Explore government vacancies and recruitment notices published through official channels.</p>
-<a href="https://www.dpsa.gov.za/" target="_blank" rel="noopener">Visit DPSA Website</a>
-</div>
-
-<div class="job" data-country="south-africa">
-<span class="status">Job Search Resource</span>
-<h3>South African Public Service Jobs</h3>
-<p><strong>Location:</strong> South Africa</p>
-<p>Find public service vacancy information and official application instructions.</p>
-<a href="https://www.gov.za/" target="_blank" rel="noopener">Visit Government Website</a>
-</div>
-
-<div class="job" data-country="internship">
-<span class="status">Internship Resource</span>
-<h3>Graduate Internship Opportunities</h3>
-<p><strong>Location:</strong> Eswatini and South Africa</p>
-<p>Learn how to find graduate internships and prepare your application.</p>
-<a href="articles/graduate-internships.html">Read Internship Guide</a>
-</div>
-
-</section>
-
-<section>
-<div class="note">
-<strong>Important:</strong> These are official job-search resources, not confirmed individual vacancies. Always check the original employer's website for current openings, deadlines and requirements. Never pay anyone to secure employment.
-</div>
-</section>
+  <section class="search-panel">
+    <h2>Important Notice</h2>
+    <p>
+      Eswatini Jobs Hub is an independent job information platform.
+      Always verify vacancies through the official employer website.
+      Never pay money to secure a job or an interview.
+    </p>
+  </section>
 
 </main>
 
 <footer>
-<p>© 2026 Eswatini Jobs Hub</p>
-<p><a href="index.html">Return to Homepage</a></p>
+  <p>© 2026 Eswatini Jobs Hub. All rights reserved.</p>
+  <p>Your next opportunity starts here.</p>
+  <p><a href="index.html">Back to Homepage</a></p>
 </footer>
 
-<script>
-function filterJobs(type) {
-  const jobs = document.querySelectorAll(".job");
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-  jobs.forEach(job => {
-    if (type === "all" || job.dataset.country === type) {
-      job.style.display = "block";
-    } else {
-      job.style.display = "none";
-    }
+<script>
+const SUPABASE_URL =
+  "https://estfnipzuevqiomildog.supabase.co";
+
+const SUPABASE_KEY =
+  "sb_publishable_Vw3gedgG9p8oY7rmlYXFWg_p9t1iCR7";
+
+const client = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+
+const jobsContainer =
+  document.getElementById("jobsContainer");
+
+const message =
+  document.getElementById("message");
+
+const searchInput =
+  document.getElementById("searchInput");
+
+const countryFilter =
+  document.getElementById("countryFilter");
+
+let allJobs = [];
+
+function createJobCard(job) {
+  const card = document.createElement("article");
+  card.className = "job-card";
+
+  const title = document.createElement("h2");
+  title.textContent = job.title;
+
+  const employer = document.createElement("p");
+  employer.textContent = "Employer: " + job.employer;
+
+  const location = document.createElement("p");
+  location.textContent =
+    "Location: " + job.location + ", " + job.country;
+
+  const salary = document.createElement("p");
+  salary.textContent =
+    "Salary: " + (job.salary || "Not specified");
+
+  const closing = document.createElement("p");
+  closing.textContent =
+    "Closing date: " + job.closing_date;
+
+  const requirements = document.createElement("p");
+  requirements.className = "job-description";
+  requirements.textContent =
+    "Requirements: " + job.requirements;
+
+  const apply = document.createElement("a");
+  apply.className = "apply-btn";
+  apply.href = job.application_link;
+  apply.target = "_blank";
+  apply.rel = "noopener noreferrer";
+  apply.textContent = "Apply Now";
+
+  card.append(
+    title,
+    employer,
+    location,
+    salary,
+    closing,
+    requirements,
+    apply
+  );
+
+  return card;
+}
+
+function displayJobs() {
+  jobsContainer.innerHTML = "";
+
+  const search =
+    searchInput.value.toLowerCase().trim();
+
+  const country = countryFilter.value;
+
+  const filteredJobs = allJobs.filter(job => {
+    const searchableText = [
+      job.title,
+      job.employer,
+      job.location,
+      job.country,
+      job.requirements
+    ].join(" ").toLowerCase();
+
+    const matchesSearch =
+      searchableText.includes(search);
+
+    const matchesCountry =
+      country === "All" || job.country === country;
+
+    return matchesSearch && matchesCountry;
+  });
+
+  if (filteredJobs.length === 0) {
+    message.textContent =
+      "No matching vacancies found. Please check again later.";
+    message.style.display = "block";
+    return;
+  }
+
+  message.style.display = "none";
+
+  filteredJobs.forEach(job => {
+    jobsContainer.appendChild(createJobCard(job));
   });
 }
+
+async function loadJobs() {
+  message.textContent = "Loading the latest vacancies...";
+  message.style.display = "block";
+
+  const today = new Date();
+  const localToday = [
+    today.getFullYear(),
+    String(today.getMonth() + 1).padStart(2, "0"),
+    String(today.getDate()).padStart(2, "0")
+  ].join("-");
+
+  const { data, error } = await client
+    .from("jobs")
+    .select("*")
+    .eq("status", "published")
+    .gte("closing_date", localToday)
+    .order("created_at", { ascending: false });
+
+  if (error) {
+    message.textContent =
+      "We could not load vacancies. Please refresh the page. Error: " +
+      error.message;
+    return;
+  }
+
+  allJobs = data || [];
+  displayJobs();
+}
+
+searchInput.addEventListener("input", displayJobs);
+countryFilter.addEventListener("change", displayJobs);
+
+loadJobs();
 </script>
 
 </body>
